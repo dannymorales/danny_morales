@@ -1,0 +1,47 @@
+<div class="container">
+    <form  class="col">
+        <div class="row">
+            <div class="input-field col">
+                <input type="text" placeholder="Add id" id="id" [(ngModel)]="portfolioItem.id" name="id" (focus)=onFocus()>
+                <label>id</label>
+              </div>
+          <div class="input-field col">
+            <input type="text" placeholder="Add Title" [(ngModel)]="portfolioItem.title" name="title" >
+            <label>Title</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="text" placeholder="Add Description" [(ngModel)]="portfolioItem.description" name="description">
+            <label>Description</label>
+          </div>
+          <!-- <input type="submit" value="Submit" class="btn"> -->
+          <div class="">
+      <H2 class="heading">
+        Upload New images
+      </H2>
+      <div class="upload">
+        <input class="inputfile" type="file" name="file" (change)="handleFiles($event)" multiple> 
+      </div>
+      <button (click)="click()" class="btn btn-primary select">Select files</button>
+      <button class="btn btn-primary" (click)="uploadFiles()">
+        Upload Files
+      </button>
+        <div class="bar" *ngIf="upload">
+          <div class="progress-bar progress-animated-bar" *ngIf="upload.progress > 1 && upload.progress < 100"[ngStyle]="{ 'width': upload.progress + '%'}">
+            progress: {{upload.progress}}% complete
+          </div>
+        </div>
+    </div>
+    <div>
+        <input class="drop" type="file" name="file" (change)="handleFiles($event)" multiple> 
+    </div>
+    <div class="uploadFile" *ngFor="let file of files">
+      {{file.name}}
+    </div>
+</div>
+  
+</form>
+</div>
+  
+
+
+

@@ -1,0 +1,13 @@
+.container{
+    margin: 10px auto;
+    width: 90%;
+    padding: 10px;
+}
+h2, h4{
+    text-align: center
+}
+.row{
+    border: 1px solid black;
+    height: 400px;
+    margin: 1% auto;
+}

@@ -1,0 +1,6 @@
+<button (click)="expand()">Open</button>
+    <button (click)="collapse()">Closed</button>
+    <hr />
+    <div class="toggle-container" [@openClose]="stateExpression">
+      Look at this box
+    </div>

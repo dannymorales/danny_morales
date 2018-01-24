@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>dashboard</h2>
+  
+  <div class="row portolio">
+    <h4>portfolio</h4>
+    <div>
+      <ul *ngFor="let portfolioItem of portfolioItems" class="collection">
+        <li class="collection-item">
+          <h4>{{portfolioItem.id}}</h4>
+          <h4>{{portfolioItem.title}}</h4>
+          <p>{{portfolioItem.description}}</p>
+          <button class="btn" (click)="editPortfolioItem($event, portfolioItem)">
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true">Edit</span>
+          </button>
+          <button class="btn" *ngIf="editState && portfolioItemToEdit.id == portfolioItem.id" (click)="clearState()">
+              <span class="glyphicon glyphicon-compressed" aria-hidden="true">cancel</span>
+          </button>
+        </li>
+        <div *ngIf="editState && portfolioItemToEdit.id == portfolioItem.id">
+          <form (ngSubmit)="updatePortfolioItem(portfolioItem)">
+            <div class="row">
+              <div class="input-field">
+                <input type="text" name="title" placeholder="enter title here" [(ngModel)]="portfolioItem.title">
+              </div>
+              <div class="input-field">
+                <textarea name="description" placeholder="enter description here" id="" cols="30" rows="10" [(ngModel)]="portfolioItem.description"></textarea>
+                <input type="submit" value="Update Portfolio Item">
+              </div>
+            </div>
+          </form>
+        </div>
+      </ul>
+    </div>
+    
+  </div>
+  <div class="row blog">
+    <h4>blog</h4>
+
+  </div>
+</div>

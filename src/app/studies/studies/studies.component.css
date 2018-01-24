@@ -1,0 +1,10 @@
+ul{
+    display: inline-flex;
+    list-style-type: none;
+    padding: 40px;
+}
+.page{
+    margin: 10px;
+    padding-right: 5%;
+    cursor: pointer;
+}

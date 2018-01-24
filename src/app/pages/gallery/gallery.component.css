@@ -1,0 +1,12 @@
+ul {
+   
+    width: 1200px;
+}
+li{
+    display: inline;
+    padding: 0;
+    margin: 20px auto;
+}
+h2{
+    margin-bottom: 20px;
+}
