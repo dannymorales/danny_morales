@@ -31,7 +31,7 @@ export class StudiesComponent implements OnInit {
     }
   constructor(private http: Http) {}
 
-  url = 
+  
   
   videos
   pages;

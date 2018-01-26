@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, Route, ActivatedRoute } from '@angular/router';
+import { AngularFireStorage, AngularFireUploadTask, AngularFireStorageReference } from 'angularfire2/storage';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { FirestoreService } from './firestore.service';
