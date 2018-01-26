@@ -29,9 +29,9 @@ export class StudiesComponent implements OnInit {
      let url =  this.url + $event.target.innerHTML;
      this.http.get(url).map(res => res.json().data).subscribe((data) => {this.videos = data})
     }
-  constructor(private http: Http) { }
+  constructor(private http: Http) {}
 
-  url = 'https://api.vimeo.com/channels/1021571/videos?access_token=XXX&sort=manual&per_page=5&page='
+  url = 
   
   videos
   pages;
@@ -49,20 +49,13 @@ export class StudiesComponent implements OnInit {
       text += '<li class="page-item" style="padding: 7px; cursor:pointer" class="page">' + i + '</li>';
       i++
     };
-    $('ul').html(text)
-
+    $('.pagination').html(text)
   })
-  
 
 
   // data = [{"id":1},{"id":2,},{"id":3},{"id":4},{"id":5},{"id":6, "name":'danilo'},{"id":7},{"id":8},{"id":9}];
  
-  
   // data = _.chunk(this.getVideos(), 3)
   
-  ngOnInit() {
-
-  return this.getVideos()
-
-  }
+  ngOnInit() {return this.getVideos();}
 }

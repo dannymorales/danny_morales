@@ -3,7 +3,7 @@ ul {
     width: 1200px;
 }
 li{
-    display: inline;
+    display: block;
     padding: 0;
     margin: 20px auto;
 }

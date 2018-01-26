@@ -9,6 +9,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import * as model from '../../models';
 
+declare var $:any;
 
 
 @Component({
@@ -18,22 +19,27 @@ import * as model from '../../models';
 })
 export class DashboardComponent implements OnInit {
 
+  uploads: model.Upload[];
+  images: model.Upload
   portfolioItems: model.Portfolio[];
   editState: boolean = false;
+  portfolioItem: model.Portfolio;
   portfolioItemToEdit: model.Portfolio;
 
-
   constructor(private db: AngularFireDatabase, 
+              private storageService: StorageService,
               private afs: AngularFirestore, 
               private firestoreService: FirestoreService ) {}
 
+
   ngOnInit() {
-    this.firestoreService.getPortfolioItems().subscribe(items =>{
-      this.portfolioItems = items;
-      console.log(items)
+    this.firestoreService.getPortfolioItems().subscribe(portfolioItems =>{
+      this.portfolioItems = portfolioItems;
     });
     
+    
   }
+  
   deletePortfolioItem(event, portfolioItem: model.Portfolio){
     this.clearState();
     this.firestoreService.deletePortfolioItem(portfolioItem)

@@ -9,7 +9,8 @@ import { AnimationsComponent } from './studies/animations/animations.component';
 import { LoginComponent } from "../app/admin/login/login.component";
 import { AuthenticationService} from '../app/services/authentication.service';
 import { AuthGuardService} from '../app/services/auth-guard.service';
-import { DashboardComponent } from '../app/admin/dashboard/dashboard.component'
+import { DashboardComponent } from '../app/admin/dashboard/dashboard.component';
+
 
 
 
@@ -18,11 +19,13 @@ const routes: Routes = [
   { path: 'links', component: StudiesComponent},
   { path: 'animations', component: AnimationsComponent },
   { path: 'home',  component: HomeComponent },
-  {path: 'gallery', component: GalleryComponent},
-  {path: 'image/:id', component: GalleryDetailComponent},
-  {path: 'upload', component: UploadComponent, canActivate: [AuthGuardService] },
-  {path: 'login', component:LoginComponent},
+  { path: 'gallery', component: GalleryComponent},
+  { path: 'wedding-photos/:id', component: GalleryDetailComponent},
+  { path: 'upload', component: UploadComponent, canActivate: [AuthGuardService] },
+  { path: 'login', component:LoginComponent},
+  { path: 'studies', component: StudiesComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
+  
 ];
 
 @NgModule({

@@ -8,3 +8,6 @@ ul{
     padding-right: 5%;
     cursor: pointer;
 }
+.page-item{
+    border: 1px solid black;
+}

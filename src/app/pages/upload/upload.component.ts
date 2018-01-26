@@ -49,7 +49,7 @@ export class UploadComponent implements OnInit{
   dropzoneActive:boolean = false;
   something:any;
   portfolioItem: model.Portfolio = {
-    id: this.onFocus(),
+    portfolioId: this.onFocus(),
     title: '',
     description: ''
   };
@@ -67,10 +67,11 @@ dropzoneState($event: boolean) {
 
  handleFiles(event){
    this.files = event.target.files;
-   console.log(this.portfolioItem.id)
+   console.log(this.portfolioItem.portfolioId)
+   console.log(this.files)
+   
  }
-
-
+ 
  uploadFiles(){
   this.storageService.addPortfolioItem(this.portfolioItem)
   const upload = model.Upload
@@ -82,7 +83,7 @@ dropzoneState($event: boolean) {
         alert ('only jpeg files')
       }else{
         this.upload = new model.Upload(filesToUpload[idx]);
-        this.upload.refKey = this.portfolioItem.id;
+        this.upload.refKey = this.portfolioItem.portfolioId;
         this.storageService.uploadFiles(this.upload);
       }
      $('.uploadFile').html('');
@@ -90,18 +91,7 @@ dropzoneState($event: boolean) {
    
    
  }
-
-
-
- ngOnInit(){
-  $("#id").val(function(){
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for (var i = 0; i < 20; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
-   });
- }
+ ngOnInit(){}
  
 }
 

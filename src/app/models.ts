@@ -14,13 +14,15 @@ export class Post{
     description?:string;
 }
 export class Portfolio{
-    id:any;
+    id?:string;
+    portfolioId?:string;
     title?:string;
     description:string;
 }
 export class Upload{
     $key?:string;
     name?:string;
+    completeName?:string;
     file:File;
     url:string;
     refKey:string;

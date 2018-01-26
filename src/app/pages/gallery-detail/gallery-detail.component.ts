@@ -1,11 +1,12 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { StorageService } from '../../services/storage.service';
 import { ActivatedRoute } from '@angular/router';
-import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
-import { galleryImage } from '../../models';
+import { AngularFireList, AngularFireDatabase, AngularFireObject, AngularFireAction } from 'angularfire2/database';
+import * as model from '../../models';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase';
 import 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-gallery-detail',
@@ -13,15 +14,25 @@ import 'rxjs/Rx';
   styleUrls: ['./gallery-detail.component.css']
 })
 export class GalleryDetailComponent implements OnInit {
-private imageUrl = ""
-  constructor(private storageService: StorageService, private route: ActivatedRoute) { }
+  
+  
+  images: model.Upload[];
 
-  getImageUrl(key: string){
-    this.storageService.getImage(key)
-      .then(image => this.imageUrl = image)
-  }
+  constructor(private storageService: StorageService, private route: ActivatedRoute, private db: AngularFireDatabase) { }
+  id = this.route.snapshot.params['id'];
+
   ngOnInit() {
-    this.getImageUrl(this.route.snapshot.params['id'])
+    let x = this.storageService.getImagesByRef(this.id)
+    x.snapshotChanges().subscribe(item =>{
+      this.images = [];
+      item.forEach(element => {
+        let y = element.payload.toJSON();
+        y["$key"] = element.key;
+        this.images.push(y as model.Upload)
+      })
+      console.log(this.images)
+    })
+    console.log(this.id)
   }
 
 }

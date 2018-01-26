@@ -15,7 +15,7 @@ declare var $:any;
 export class GalleryComponent implements OnInit {
 
 
-  imagesRef: AngularFireList<any>;
+  // imagesRef: AngularFireList<any>;
   images: galleryImage[];
   
 
@@ -30,7 +30,9 @@ export class GalleryComponent implements OnInit {
         y["$key"] = element.key;
         this.images.push(y as galleryImage)
       });
+      console.log(this.images)
     });
+    
   }
 
   ngOnChanges(){

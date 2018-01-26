@@ -30,9 +30,11 @@ import { EngagementPhotographyComponent } from './pages/engagement-photography/e
 import { AboutComponent } from './pages/about/about.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AnimationsComponent } from './studies/animations/animations.component';
+import { ImageDetailComponent } from './pages/image-detail/image-detail.component';
+
 // ========DIRECTIVES============
 import { FileDropDirective } from './directives/file-drop.directive';
-import { AnimationsComponent } from './studies/animations/animations.component';
 
 
 
@@ -54,6 +56,7 @@ firebase.initializeApp(config.firebaseConfig);
     BlogComponent,
     DashboardComponent,
     AnimationsComponent,
+    ImageDetailComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(config.firebaseConfig),

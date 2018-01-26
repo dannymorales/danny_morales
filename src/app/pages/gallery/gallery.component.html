@@ -1,9 +1,8 @@
 <div class="container">
-    
     <h2>photos</h2>
     <div id="thumbnails">
     <li *ngFor="let image of images" >
-            <a [routerLink]="['/image', image.name]">{{image.name}}</a>
+            <a [routerLink]="['/wedding-photos', image.$key]">{{image.$key}}</a>
            {{image.url}} 
            {{image.name}}
     </li>
